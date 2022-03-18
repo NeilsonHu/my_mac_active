@@ -25,6 +25,11 @@
     [super viewDidLoad];
     textLabel.editable = NO;
     [textLabel setStringValue:@"Switch to active"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(_onWindowWillMiniaturize:)
+                                                 name:NSWindowWillMiniaturizeNotification
+                                               object:nil];
 }
 
 #pragma mark - public methods
@@ -38,6 +43,10 @@
 - (void)_printAndChangeText:(NSString *)string {
     NSLog(@"%@", string);
     [textLabel setStringValue:string];
+}
+
+- (void)_onWindowWillMiniaturize:(NSNotification *)notify {
+    [NSApp hide:nil];
 }
 
 #pragma mark - IBAction methods
