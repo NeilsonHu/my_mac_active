@@ -1,3 +1,3 @@
 # my_mac_active
 
-Just a small demo app for keep your mac active.
+Just a small demo app to keep your mac active.
